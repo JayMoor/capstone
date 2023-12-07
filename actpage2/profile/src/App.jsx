@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './components/Profile';
 import Navbar from './components/Navbar';
 import AlbumPage from './components/AlbumPage';
-
+import Login from './components/login'
 
 
 const App = () => {
- 
+  // State for user profile data
   const [userData, setUserData] = useState({
     profilePicture: 'path/to/default-profile-picture.jpg',
     username: 'JohnDoe',
@@ -18,11 +18,10 @@ const App = () => {
 
   
   useEffect(() => {
-  
     const fetchData = async () => {
       try {
-      
-        const response = await fetch('/api/user-data'); /
+       
+        const response = await fetch('/api/user-data'); 
         const data = await response.json();
 
         
@@ -37,21 +36,18 @@ const App = () => {
 
     fetchData();
   }, []); 
-
   return (
     
     <Router>
-    <div id="app">
-      
-      <Navbar />
-
-      <Switch>
-        <Route path="/profile" exact component={Profile} />
-        <Route path="/albumpage" exact component={AlbumPage} />
-        
-      </Switch>
-    </div>
-  </Router>
+      <div id="app">
+        <Navbar />
+        <Routes>
+          <Route path="/profile" element={<Profile userData={userData} />} />
+          <Route path="/albumpage" element={<AlbumPage userData={userData} />} />
+          <Route path="/login" element={<Login userData={userData}/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
