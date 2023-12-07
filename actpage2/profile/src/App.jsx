@@ -16,13 +16,13 @@ const App = () => {
     comments: ['Nice profile!', 'Awesome experience!'],
   });
 
-  // Fetch additional data when the component mounts
+  
   useEffect(() => {
-    // API endpoint to fetch user data
+  
     const fetchData = async () => {
       try {
-        // Update this URL with your actual API endpoint
-        const response = await fetch('/api/user-data'); // Use an absolute path or configure your server to handle relative paths
+      
+        const response = await fetch('/api/user-data'); /
         const data = await response.json();
 
         // Update the state with the fetched data
