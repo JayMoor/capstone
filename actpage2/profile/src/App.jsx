@@ -36,7 +36,7 @@ const App = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []); 
 
   return (
     
