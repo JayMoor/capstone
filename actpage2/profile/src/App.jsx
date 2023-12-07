@@ -7,7 +7,7 @@ import AlbumPage from './components/AlbumPage';
 
 
 const App = () => {
-  // State for user profile data
+ 
   const [userData, setUserData] = useState({
     profilePicture: 'path/to/default-profile-picture.jpg',
     username: 'JohnDoe',
@@ -25,7 +25,7 @@ const App = () => {
         const response = await fetch('/api/user-data'); /
         const data = await response.json();
 
-        // Update the state with the fetched data
+        
         setUserData((prevUserData) => ({
           ...prevUserData,
           ...data,
