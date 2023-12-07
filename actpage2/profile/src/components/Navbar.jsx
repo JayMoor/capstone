@@ -10,13 +10,15 @@ const Navbar = () => {
           <Link to='/profile'>Profile</Link>
         </li>
         <li>
-          <Link to= '/albumpage'>ALbum Page</Link>
+          <Link to='/login'>Login</Link>
+        </li>
+        <li>
+          <Link to= '/albumpage'>Album Page</Link>
         </li>
         <li>Home</li>
         <li>Album Review </li>
         <li>Admin</li>
         <li>Add Album</li>
-        <li>Profile Page</li>
       </ul>
     </nav>
   );
