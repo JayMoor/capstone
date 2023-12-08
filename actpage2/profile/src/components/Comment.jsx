@@ -16,7 +16,7 @@ const Comment = ({ comment, onReply }) => {
       <button onClick={handleReply}>Reply</button>
       <input
         type="text"
-        placeholder="Your reply..."
+        placeholder=" reply..."
         value={replyText}
         onChange={(e) => setReplyText(e.target.value)}
       />
