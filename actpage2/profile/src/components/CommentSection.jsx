@@ -5,7 +5,6 @@ const CommentSection = () => {
   const [comments, setComments] = useState([]);
 
   const handleReply = (replyText, parentCommentIndex) => {
-    // Logic to add the reply to the parent comment
     const updatedComments = [...comments];
     updatedComments[parentCommentIndex].replies.push(replyText);
     setComments(updatedComments);

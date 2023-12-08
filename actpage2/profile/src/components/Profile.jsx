@@ -29,7 +29,6 @@ const Profile = ({ userData }) => {
   };
 
   const handleCancelClick = () => {
-    // Cancel editing and revert to the original username
     setEditedUsername(userData.username);
     setIsEditing(false);
   };

@@ -79,7 +79,6 @@ html, body, #app {
     color: rgb(0, 0, 0);
     padding: 8px;
     border-color: #000000;
-    /* may need to add border here */
     border-radius: 4px;
     cursor: pointer;
     margin-right: 5px;
