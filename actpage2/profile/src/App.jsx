@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom';
 import Profile from './components/Profile';
 import Navbar from './components/Navbar';
 import AlbumPage from './components/AlbumPage';
-import Login from './components/login'
+import AuthForm from './components/login'
+import UserList from './components/UserList';
+
 
 
 const App = () => {
@@ -14,6 +16,8 @@ const App = () => {
     reviews: ['sup bro', 'great song!'],
     comments: ['nice flow!', 'Awesome experience!'],
   });
+
+
 
   
   useEffect(() => {
@@ -37,18 +41,20 @@ const App = () => {
   }, []); 
   return (
     
-    <Router>
+    
       <div id="app" className='grid-container'>
         <Navbar />
         <div className='grid-content'>
         <Routes>
           <Route path="/profile" element={<Profile userData={userData} />} />
           <Route path="/albumpage" element={<AlbumPage userData={userData} />} />
-          <Route path="/login" element={<Login userData={userData}/>} />
+          <Route path="/login" element={<AuthForm userData={userData}/>} />
+          <Route path ="/register" element={<AuthForm userData={userData}/>} />
+          <Route path="/UserList" element={<UserList userdata={userData}/>}/>
         </Routes>
         </div>
       </div>
-    </Router>
+    
   );
 };
 
