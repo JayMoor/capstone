@@ -2,21 +2,14 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const cors = require('cors')
 const bcrypt = require('bcrypt');
-const { read } = require('fs');
 const jwt = require(('jsonwebtoken'))
 
 const app = express();
 const port = process.env.PORT || 3001;
 const prisma = new PrismaClient();
 
-
 app.use(cors());
 app.use(express.json());
-
-
-
-
-
 
 app.get('/api/users', async (req, res, next) => {
   try {
