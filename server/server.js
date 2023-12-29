@@ -69,7 +69,7 @@ app.get('api/auth/me', async (req, res, next) =>{
   const {username} = jwt.verify(token, process.env.JWT_SECRET_KEY)
   // get the user where the username matches
   const user = await prisma.users.findUnique({where: {username}})
-  // if (!user) res.status().send({message:"no user"})
+   if (!user) res.status(404).send({message:"no user"})
   res.send(user);
 });
 

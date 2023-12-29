@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Navbar from './Navbar';
 import CommentSection from './CommentSection';
 import Rating from './Rating';
+import MediaCard from './Display'; 
 import AlbumInfo from './AlbumInfo';
 import './Profile.css'
 
@@ -34,6 +35,7 @@ const AlbumPage = () => {
   return (
     <div id="album-page">
       <AlbumInfo {...albumData} />
+      <MediaCard />
       <Rating />
       <CommentSection />
       <div>
