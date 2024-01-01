@@ -21,7 +21,9 @@ const Navbar = () => {
         <li>
           <Link to= '/addalbum'>Add Album</Link>
         </li>
-        <li>Admin</li>
+        <li>
+          <Link to='/admin'>Admin</Link>
+        </li>
       </ul>
     </nav>
   );

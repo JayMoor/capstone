@@ -7,6 +7,7 @@ import AuthForm from './components/login'
 import UserList from './components/UserList';
 import Home from './components/Home'
 import AddAlbum from './components/AddNewAlbum';
+import AdministratorPage from './components/Admin';
 
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/UserList" element={<UserList userdata={userData}/>}/>
           <Route path="/Home" element={<Home userData={userData}/>} />
           <Route path="/AddAlbum" element={<AddAlbum userData={userData} />} />
+          <Route path="/admin" element={<AdministratorPage userData={userData}/>}/>
         </Routes>
         </div>
       </div>
