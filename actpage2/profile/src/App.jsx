@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import AlbumPage from './components/AlbumPage';
 import AuthForm from './components/login'
 import UserList from './components/UserList';
-
+import AddAlbum from './components/AddNewAlbum';
 
 
 const App = () => {
@@ -51,6 +51,7 @@ const App = () => {
           <Route path="/login" element={<AuthForm userData={userData}/>} />
           <Route path ="/register" element={<AuthForm userData={userData}/>} />
           <Route path="/UserList" element={<UserList userdata={userData}/>}/>
+          <Route path="/AddAlbum" element={<AddAlbum userData={userData} />} />
         </Routes>
         </div>
       </div>
