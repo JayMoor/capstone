@@ -7,6 +7,9 @@ const Navbar = () => {
       <div className="navbar-logo">Harmonize</div>
       <ul className="navbar-links">
         <li>
+          <Link to='/home'>Home</Link>
+        </li>
+        <li>
         <Link to='/login'>Login</Link>
         </li>
         <li>
@@ -16,11 +19,9 @@ const Navbar = () => {
           <Link to= '/albumpage'>Album Page</Link>
         </li>
         <li>
-          <Link to='/Home'>Home</Link>
+          <Link to= '/addalbum'>Add Album</Link>
         </li>
-        <li>Album Review </li>
         <li>Admin</li>
-        <li>Add Album</li>
       </ul>
     </nav>
   );
