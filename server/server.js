@@ -102,14 +102,14 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.get('/api/users', async (req, res) => {
-    try {
-      const users = await prisma.users.findMany();
-      res.json(users);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+// app.get('/api/users', async (req, res) => {
+//     try {
+//       const users = await prisma.users.findMany();
+//       res.json(users);
+//     } catch (error) {
+//       res.status(500).json({ error: error.message });
+//     }
+//   });
   
   
   app.get('/api/users/:id', async (req, res) => {
@@ -174,15 +174,13 @@ app.get('/api/users', async (req, res) => {
   });
 
 
-
-  // Aaron code 
-
-
-
-
-
-
-
-
-  // Sterlhing code 
-  
+  app.get('/api/album', async (req, res, next) => {
+    try {
+      const album = await prisma.album.findMany();
+      // res.json(album);
+      if (!album) res.send([])
+      res.send(album)
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
