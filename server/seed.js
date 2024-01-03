@@ -4,7 +4,7 @@ const { name } = require('faker/lib/locales/az');
 const prisma = new PrismaClient();
 
 const genres = ["ROCK", "RAP", "COUNTRY", "KPOP", "HIPHOP", "RNB"];
-const rating = ["Half", "One", "OneAndHalf", "Two", "TwoAndHalf", "Three", "ThreeAndHalf", "Four", "FourAndHalf", "Five"]
+const ratingOptions = ["Half", "One", "OneAndHalf", "Two", "TwoAndHalf", "Three", "ThreeAndHalf", "Four", "FourAndHalf", "Five"]
 // enum Rating {
 //   Half //0.5
 //   One //1.0
@@ -65,7 +65,7 @@ async function seed() {
       const id = Number(String(Date.now()).substring(0,8))+i; 
       const user = users[Math.floor(Math.random() * users.length)].name;
       const body = faker.lorem.paragraphs();
-      const rating = rating[Math.floor(Math.random() * rating.length)];
+      const rating = ratingOptions[Math.floor(Math.random() * ratingOptions.length)];
       const album = albums[Math.floor(Math.random() * albums.length)].name;
 
       await prisma.review.create({
