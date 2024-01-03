@@ -20,13 +20,11 @@ const App = () => {
   });
 
 
-
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
        
-        const response = await fetch('/api/user-data'); 
+        const response = await fetch('/api/users'); 
         const data = await response.json();
 
         

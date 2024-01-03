@@ -6,33 +6,41 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+
 export default function MediaCard(props) {
+
+  function AlbumArt (){
+    return (
+      <img src = {props.album.imageURL} />
+    )
+  }  
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         //component = 'img'
-        
+    
         // sx={{ height: 50 height not needed}} 
         />
-        <img src = {props.album.imageURL} />
+        <AlbumArt/>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.album.name}
         </Typography>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h10" component="div">
           {props.album.artist}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {props.album.genre}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.album.release_date}
+          {new Date(props.album.release_date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' })}
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Button Link={} size="small">Review
-        </Button> */}
-        {/* <Button size="small">Learn More</Button> */}
+        {/* button goes here */}
+        {<Button size="small">Review
+        </Button>}
       </CardActions>
     </Card>
   );
