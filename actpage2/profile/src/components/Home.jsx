@@ -1,29 +1,19 @@
 import React from 'react';
 import MediaCard from './Display';
-
-
-
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Homepage = () => {
-    const albums = [
-      { title: 'Album 1',},
-      { title: 'Album 2',},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-      { title: 'Album 3,'},
-    
-    ];
+
+  const [albums, setAlbums] = useState([]);
+
+  useEffect(() => {
+    // Fetch list of users
+        axios.get('http://localhost:3001/api/album')
+        .then(response => setAlbums(response.data))
+        .catch(error => console.error('Error fetching albums:', error));
+    // Fetch current reviews
+  }, []);
   
     return (
       <div>
