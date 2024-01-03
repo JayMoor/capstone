@@ -184,3 +184,69 @@ app.listen(port, () => {
       res.status(500).json({ error: error.message });
     }
   });
+
+  app.post('/api/reviews', async (req, res) => {
+    const { user, body, rating, album } = req.body;
+    try {
+      const newReview = await prisma.review.create({
+        data: { user, body, rating, album },
+      });
+      res.status(201).json(newReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+  
+  app.get('/api/reviews', async (req, res) => {
+    try {
+      const reviews = await prisma.review.findMany();
+      res.json(reviews);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const review = await prisma.review.findUnique({
+        where: { id: parseInt(id) },
+      });
+      if (!review) {
+        res.status(404).json({ error: 'Review not found' });
+        return;
+      }
+      res.json(review);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+  
+
+  app.put('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const { user, body, rating, album } = req.body;
+    try {
+      const updatedReview = await prisma.review.update({
+        where: { id: parseInt(id) },
+        data: { user, body, rating, album },
+      });
+      res.json(updatedReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+  
+  
+  app.delete('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletedReview = await prisma.review.delete({
+        where: { id: parseInt(id) },
+      });
+      res.json(deletedReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+  
