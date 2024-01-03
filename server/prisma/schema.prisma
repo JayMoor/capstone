@@ -15,6 +15,19 @@ enum Genre {
   RNB
 }
 
+enum Rating {
+    Half //0.5
+    One //1.0
+    OneAndHalf //1.5
+    Two //2.0
+    TwoAndHalf //2.5
+    Three //3.0
+    ThreeAndHalf //3.5
+    Four //4.0
+    FourAndHalf  //4.5
+    Five //5.0
+}
+
 model users {
   id    Int     @id @default(autoincrement())
   username String  @unique
@@ -31,6 +44,14 @@ model album {
     genre Genre   //using enum//
     release_date DateTime
     imageURL  String
+}
+
+model review{
+  id    Int     @id @default(autoincrement())
+  user  String
+  body  String
+  rating  Rating
+  album String
 }
 
 generator client {
