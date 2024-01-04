@@ -52,7 +52,7 @@ const App = () => {
           <Route path ="/register" element={<AuthForm userData={userData}/>} />
           <Route path="/UserList" element={<UserList userdata={userData}/>}/>
           <Route path="/Home" element={<Home userData={userData}/>} />
-          <Route path="/AddAlbum" element={<AddAlbum userData={userData} />} />
+          {/* <Route path="/AddAlbum" element={<AddAlbum userData={userData} />} /> */}
           <Route path="/admin" element={<AdministratorPage userData={userData}/>}/>
         </Routes>
         </div>
