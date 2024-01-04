@@ -62,7 +62,7 @@ app.get('api/auth/me', async (req, res, next) =>{
   const {username} = jwt.verify(token, process.env.JWT_SECRET_KEY)
   // get the user where the username matches
   const user = await prisma.users.findUnique({where: {username}})
-  // if (!user) res.status().send({message:"no user"})
+   if (!user) res.status(404).send({message:"no user"})
   res.send(user);
 });
 
@@ -102,14 +102,14 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.get('/api/users', async (req, res) => {
-    try {
-      const users = await prisma.users.findMany();
-      res.json(users);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+// app.get('/api/users', async (req, res) => {
+//     try {
+//       const users = await prisma.users.findMany();
+//       res.json(users);
+//     } catch (error) {
+//       res.status(500).json({ error: error.message });
+//     }
+//   });
   
   
   app.get('/api/users/:id', async (req, res) => {
@@ -174,15 +174,98 @@ app.get('/api/users', async (req, res) => {
   });
 
 
+  app.get('/api/album', async (req, res, next) => {
+    try {
+      const album = await prisma.album.findMany();
+      // res.json(album);
+      if (!album) res.send([])
+      res.send(album)
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
-  // Aaron code 
+  // get album by id
+  app.get('/api/album/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const album = await prisma.album.findUnique({
+        where: { id: parseInt(id) },
+      });
+  
+      if (!album) {
+        res.status(404).json({ error: 'Album not found' });
+        return;
+      }
+  
+      res.json(album);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
+  app.post('/api/reviews', async (req, res) => {
+    const { user, body, rating, album } = req.body;
+    try {
+      const newReview = await prisma.review.create({
+        data: { user, body, rating, album },
+      });
+      res.status(201).json(newReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+  
+  app.get('/api/reviews', async (req, res) => {
+    try {
+      const reviews = await prisma.review.findMany();
+      res.json(reviews);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 
+  app.get('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const review = await prisma.review.findUnique({
+        where: { id: parseInt(id) },
+      });
+      if (!review) {
+        res.status(404).json({ error: 'Review not found' });
+        return;
+      }
+      res.json(review);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+  
 
-
-
-
-
-
-  // Sterlhing code 
+  app.put('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const { user, body, rating, album } = req.body;
+    try {
+      const updatedReview = await prisma.review.update({
+        where: { id: parseInt(id) },
+        data: { user, body, rating, album },
+      });
+      res.json(updatedReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+  
+  
+  app.delete('/api/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletedReview = await prisma.review.delete({
+        where: { id: parseInt(id) },
+      });
+      res.json(deletedReview);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
   

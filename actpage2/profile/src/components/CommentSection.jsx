@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
 
-const CommentSection = () => {
-  const [comments, setComments] = useState([]);
+const CommentSection = (props) => {
+  // const [comments, setComments] = useState([]);
 
-  const handleReply = (replyText, parentCommentIndex) => {
-    const updatedComments = [...comments];
-    updatedComments[parentCommentIndex].replies.push(replyText);
-    setComments(updatedComments);
-  };
+  // const handleReply = (replyText, parentCommentIndex) => {
+  //   const updatedComments = [...comments];
+  //   updatedComments[parentCommentIndex].replies.push(replyText);
+  //   setComments(updatedComments);
+  // };
 
   return (
     <div className="comment-section">
-      <h2>Comments</h2>
-      {comments.map((comment, index) => (
-        <Comment key={index} comment={comment} onReply={(text) => handleReply(text, index)} />
+      <h2>Ratings</h2>
+      {props.reviews && props.reviews.length === 0 && <p>No ratings yet</p>}
+      {props.reviews.map((comment, index) => (
+        <Comment key={index} comment={comment} />
       ))}
     </div>
   );
