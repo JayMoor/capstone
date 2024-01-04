@@ -17,12 +17,15 @@ const Homepage = () => {
   
     return (
       <div>
-        <div >
+        <div>
             <h1>
                 Haromize 
             </h1>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', justifyContent: 'space-evenly' }}>
+        <div style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          justifyContent: 'center' }}>
           {albums.map((album, index) => (
             <MediaCard key={index} album={album} />
           ))}

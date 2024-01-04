@@ -185,6 +185,25 @@ app.listen(port, () => {
     }
   });
 
+  // get album by id
+  app.get('/api/album/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const album = await prisma.album.findUnique({
+        where: { id: parseInt(id) },
+      });
+  
+      if (!album) {
+        res.status(404).json({ error: 'Album not found' });
+        return;
+      }
+  
+      res.json(album);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   app.post('/api/reviews', async (req, res) => {
     const { user, body, rating, album } = req.body;
     try {

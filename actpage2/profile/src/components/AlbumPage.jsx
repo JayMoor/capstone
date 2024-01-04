@@ -1,32 +1,34 @@
-import React, {useState} from 'react';
-import Navbar from './Navbar';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import CommentSection from './CommentSection';
-import Rating from './Rating';
-import MediaCard from './Display'; 
-import AlbumInfo from './AlbumInfo';
+import MediaCard from './Display';
 import './Profile.css'
 
 
 const AlbumPage = () => {
-  const albumData = {
-    album: 'Album Name',
-    artist: 'Artist Name',
-    producer: 'Producer Name',
-  };
 
-  const [comment, setComment] = useState('')
-  const [comments, setComments] = useState([])
+  const [yourRatings, setYourRatings] = useState([]);
+  const [album, setAlbum] = useState({});
 
-  const handleCommentChange=(event) => {
-    setComment(event.target.value)
-  }
+  const selectedAlbum = useParams().selectedAlbum;
 
-  const hamdleAddComment = () => {
-    if (comment.trim() !== ''){
-      setComments((prevComments) => [...prevComments, comment]);
-      setComment('')
-    }
-  }
+  // get the album data from the database
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/album/${selectedAlbum}`)
+    .then(response => setAlbum(response.data))
+    .catch(error => console.error('Error fetching albums:', error));
+  }, []);
+
+  // get the user's ratings for the album
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/reviews`)
+    // filter repsonse.date by album name (from album state)
+    // TODO filter by user id
+    .then(response => setYourRatings(response.data.filter((rating) => rating.album === album.name)))
+    .catch(error => console.error('Error fetching albums:', error));
+  }, [album]);
+
 
   const handleSaveComments = () => {
     console.log('Save comments:, comments')
@@ -34,23 +36,8 @@ const AlbumPage = () => {
 
   return (
     <div id="album-page">
-      <AlbumInfo {...albumData} />
-      <MediaCard />
-      <Rating />
-      <CommentSection />
-      <div>
-        <h2>Add a Comment</h2>
-        <textarea 
-        value={comment}
-        onChange={handleCommentChange}
-        placeholder="comment here..."
-        ></textarea>
-        <br />
-        <button onClick={hamdleAddComment}Add Comment></button>
-        <div>
-          <button onClick={handleSaveComments}>Save</button>
-        </div>
-      </div>
+      <MediaCard album={album} />
+      <CommentSection reviews={yourRatings} />
     </div>
   );
 };

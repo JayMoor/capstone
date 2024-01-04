@@ -16,12 +16,6 @@ const Navbar = () => {
           <Link to='/profile'>Profile</Link>
         </li>
         <li>
-          <Link to= '/albumpage'>Album Page</Link>
-        </li>
-        {/* <li>
-          <Link to= '/addalbum'>Add Album</Link>
-        </li> */}
-        <li>
           <Link to='/admin'>Admin</Link>
         </li>
       </ul>
