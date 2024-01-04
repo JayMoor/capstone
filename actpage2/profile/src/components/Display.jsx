@@ -9,11 +9,14 @@ import Typography from '@mui/material/Typography';
 
 export default function MediaCard(props) {
 
+  // get current path with react router
+  const currentPath = window.location.pathname.split('/')[1];
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: '15px' }}>
       <CardMedia
         component = 'img'
-        />
+      />
         <img src = {props.album.imageURL} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -30,10 +33,24 @@ export default function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* button goes here */}
-        {<Button size="small">Review
-        </Button>}
-      </CardActions>
+        {currentPath === 'Home' ? 
+        <Button 
+        size="small"
+        onClick={() => {
+          window.location.href = `/albumpage/${props.album.id}`;
+        }}
+        >
+          Review
+      </Button> :
+        <Button 
+        size="small"
+        onClick={() => {
+          window.location.href = `/Home/`;
+        }}
+        >
+          Return Home
+      </Button> }
+    </CardActions>
     </Card>
   );
 }

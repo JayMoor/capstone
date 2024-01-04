@@ -6,7 +6,7 @@ import AlbumPage from './components/AlbumPage';
 import AuthForm from './components/login'
 import UserList from './components/UserList';
 import Home from './components/Home'
-import AddAlbum from './components/AddNewAlbum';
+// import AddAlbum from './components/AddNewAlbum';
 import AdministratorPage from './components/Admin';
 
 
@@ -47,12 +47,11 @@ const App = () => {
         <div className='grid-content'>
         <Routes>
           <Route path="/profile" element={<Profile userData={userData} />} />
-          <Route path="/albumpage" element={<AlbumPage userData={userData} />} />
+          <Route path="/albumpage/:selectedAlbum" element={<AlbumPage userData={userData} />} />
           <Route path="/login" element={<AuthForm userData={userData}/>} />
           <Route path ="/register" element={<AuthForm userData={userData}/>} />
           <Route path="/UserList" element={<UserList userdata={userData}/>}/>
           <Route path="/Home" element={<Home userData={userData}/>} />
-          {/* <Route path="/AddAlbum" element={<AddAlbum userData={userData} />} /> */}
           <Route path="/admin" element={<AdministratorPage userData={userData}/>}/>
         </Routes>
         </div>
