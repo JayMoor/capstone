@@ -1,0 +1,92 @@
+[
+    {
+        "name":"Enter the Wu-Tang (36 Chambers)",
+        "genre":"Hip-Hop",
+        "imageURL":"https://upload.wikimedia.org/wikipedia/en/5/53/Wu-TangClanEntertheWu-Tangalbumcover.jpg",
+        "release_date":"1993"
+    },
+    {
+        "name":"Nostalgia",
+        "genre":"Hip-Hop",
+        "imageURL":"https://en.wikipedia.org/wiki/File:Rod_Wave_-_Nostalgia.png",
+        "release_date":"2023"
+    },
+    {
+        "name":"Drunk",
+        "genre":"R&B",
+        "imageURL":"https://upload.wikimedia.org/wikipedia/en/9/99/DrunkThundercat.jpg",
+        "release_date":"2017"
+    },
+    {
+        "name":"For all the Dogs",
+        "genre":"Hip-Hop",
+        "imageURL":"https://en.wikipedia.org/wiki/File:Drake_-_For_All_The_Dogs.png",
+        "release_date":"2023"
+    },
+    {
+        "name":"Luv 4 Rent",
+        "genre":"Hip-Hop",
+        "imageURL":"https://en.wikipedia.org/wiki/File:Luv4Rent.png",
+        "release_date":"2022"
+    },
+    {
+        "name":"Future Nostalgia",
+        "genre":"Pop",
+        "imageURL":"https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
+        "release_date":"2020"
+    },
+    {
+        "name":"Torches",
+        "genre":"Pop",
+        "imageURL":"https://en.wikipedia.org/wiki/Torches_(album)#/media/File:Torches_foster_the_people.jpg",
+        "release_date":"2011"
+    },
+    {
+        "name":"The Colour And The Shape",
+        "genre":"Rock",
+        "imageURL":"https://en.wikipedia.org/wiki/The_Colour_and_the_Shape#/media/File:FooFighters-TheColourAndTheShape.jpg",
+        "release_date":"1997"
+    },
+    {
+        "name":"Cage The Elephant",
+        "genre":"Rock",
+        "imageURL":"https://en.wikipedia.org/wiki/Cage_the_Elephant_(album)#/media/File:Cage_the_elephant_album.jpg",
+        "release_date":"2008"
+    },
+    {
+        "name":"RTJ 4",
+        "genre":"Rap",
+        "imageURL":"https://en.wikipedia.org/wiki/RTJ4#/media/File:Run_the_Jewels_-_RTJ4.png",
+        "release_date":"2020"
+    },
+    {
+        "name":"The House That Dirt Built",
+        "genre":"Pop",
+        "imageURL":"https://en.wikipedia.org/wiki/The_House_That_Dirt_Built#/media/File:The_House_That_Dirt_Built.jpg",
+        "release_date":"2009"
+    },
+    {
+        "name":"Acid Rap",
+        "genre":"Rap",
+        "imageURL":"https://en.wikipedia.org/wiki/Acid_Rap#/media/File:Chance_the_rapper_acid_rap.jpg",
+        "release_date":"2013"
+    },
+    {
+        "name":"Elephant",
+        "genre":"Rock",
+        "imageURL":"https://en.wikipedia.org/wiki/Elephant_(album)#/media/File:Elephant,_The_White_Stripes.png",
+        "release_date":"2003"
+    },
+    {
+        "name":"Rumors",
+        "genre":"Rock",
+        "imageURL":"https://en.wikipedia.org/wiki/Rumours_(album)#/media/File:FMacRumours.PNG",
+        "release_date":"1977"
+    },
+    {
+        "name":"Riot!",
+        "genre":"Rock",
+        "imageURL":"https://en.wikipedia.org/wiki/Riot!#/media/File:Paramore_-_Riot!.png",
+        "release_date":"2007"
+    }
+]
