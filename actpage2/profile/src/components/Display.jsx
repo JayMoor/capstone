@@ -9,20 +9,12 @@ import Typography from '@mui/material/Typography';
 
 export default function MediaCard(props) {
 
-  function AlbumArt (){
-    return (
-      <img src = {props.album.imageURL} />
-    )
-  }  
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        //component = 'img'
-    
-        // sx={{ height: 50 height not needed}} 
+        component = 'img'
         />
-        <AlbumArt/>
+        <img src = {props.album.imageURL} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.album.name}
