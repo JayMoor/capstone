@@ -21,9 +21,17 @@ const AdministratorPage = () => {
   
   // grab the user.id from the parent of the clicked button
   const handleDelete = (e) => {
-    console.log('Delete user', e.target.parentNode.id);
-    // TODO on delete remove both user and their reviews w/ axios
-    // Need fetch users and setUsers again after this operation
+    const userId = e.target.parentNode.id;
+    console.log('Delete user', userId);
+  
+    axios.delete(`/api/users/${userId}`)
+      .then(response => {
+        console.log('User deleted:', response.data);
+        useEffect();
+      })
+      .catch(error => {
+        console.error('Error deleting user:', error);
+      });
   };
   
 
